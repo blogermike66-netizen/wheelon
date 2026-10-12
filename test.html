@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>test</title>
+<style>
+  
+ *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+min-height:100vh;
+backgrond-image:url(4d3cdb3b22f5a182eb352d8fa66816cc~2.jpg);
+align-content:center;
+justify-content:center;
+overflow-x:hidden;
+overflow-y:hidden;
+}
+#time{
+position:relative;
+font-size:440px;
+font-weight:bold;
+left:150px;
+}
+
+#start,#stop{
+ height:140px;
+ width:200px;
+ font-size:60px;
+ font-weight:bold;
+ border-radius:40px;
+ }
+ #start{
+ background-color:skyblue;
+ color:white;
+ }
+ 
+ #stop{
+ background-color:red;
+ color:white;
+ }
+ 
+#press{
+display:flex;
+gap:950px;
+position:relative;
+top:-83px;
+}
+#dairy,#sign{
+ font-size:20px;
+ font-weight:bold;
+ border-radius:40px;
+ cursor:pointer;
+}
+#dairy:hover,#sign:hover{
+color:purple;
+}
+
+#container{
+display:flex;
+border:2px solid;
+gap:1140px;
+}
+</style>
+</head>
+<body>
+<div id = "container">
+<div id ="dairy">Dairy quotes</div>
+<div id ="sign">sign in</div>
+</div>
+
+<div id ="quoteBox">
+<h1 id ="heading"></h1>
+<h2 id = "writer"></h2>
+</div>
+
+<script> 
+
+const heading = document.getElementById("heading");
+const writer = document.getElementById("writer");
+
+let any = 0;
+
+dairy.addEventListener("click",()=>{
+any++
+const random = Math.floor(Math.random()*any);
+console.log(random);
+
+async function point(){
+try{
+const response = await fetch("https://bible.helloao.org/api/${translation}/books.json")
+
+
+
+if(!response.ok){
+throw new Error("could not fetch the infomation")
+}
+const data = await response.json();
+console.log(data);
+console.log(data.translations[0].name)
+}
+catch(error){
+console.error(error);
+}
+}
+point();
+})
+</script>
+</body>
+</script>
